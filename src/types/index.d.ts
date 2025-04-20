@@ -48,7 +48,7 @@ export interface ThemeConfig {
   }
 
   seo?: {
-    twitterID?: string
+    BiliID?: string
     verification?: {
       google?: string
       bing?: string

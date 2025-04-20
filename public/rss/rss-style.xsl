@@ -9,83 +9,154 @@
         <title><xsl:value-of select="/rss/channel/title"/> Web Feed</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        <link rel="icon" href="/icon/favicon.png" />
         <style type="text/css">
-        /* Basic styles */
-        html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
-        body{margin:0;font-family:ui-sans-serif,system-ui,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';font-size:16px;line-height:1.5;word-wrap:break-word;color:oklch(25% 0.005 298)}
-        *{box-sizing:border-box}
-        p{margin-top:0;margin-bottom:16px}
-        strong{font-weight:600}
-        small{font-size:90%}
-        h1,h2,h3,h4,h5,h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}
-        h1{padding-bottom:.3em;font-size:2em;border-bottom:1px solid #E0DFE3}
-        h2{padding-bottom:.3em;font-size:1.5em;border-bottom:1px solid #E0DFE3}
-        h3{font-size:1.25em;margin-top:0;margin-bottom:0}
-        a{color:#0366d6;text-decoration:none}
-        a:hover{text-decoration:underline}
-
-        /* Utility classes */
-        .bg-white{background-color:oklch(0.96 0.005 298)!important}
-        .px-4{padding-right:24px!important;padding-left:24px!important}
-        .py-2{padding-top:8px!important;padding-bottom:8px!important}
-        .py-5{padding-top:32px!important;padding-bottom:32px!important}
-        .pb-3{padding-bottom:16px!important}
-        .pb-5{padding-bottom:32px!important}
-        .mt-3{margin-top:16px!important}
-        .mb-1{margin-bottom:4px!important}
-        .pr-1{padding-right:4px!important}
-        .border-0{border:0!important}
-        .text-gray{color:oklch(0.25 0.005 298 / 75%)!important}
-        @media (min-width:768px){
-          .mt-md-5{margin-top:32px!important}
+        html,body {
+          margin: 0;
+          padding: 0;
+          font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+          background-color: oklch(0.98 0.003 298);
+          color: oklch(0.25 0.005 298);
+          -webkit-font-smoothing: antialiased;
+        }
+        * {
+          box-sizing: border-box;
+        }
+        a {
+          color: oklch(0.45 0.07 280);
+          text-decoration: none;
+          transition: all 0.2s ease;
+        }
+        a:hover {
+          color: oklch(0.55 0.1 280);
+        }
+        h1, h2, h3 {
+          margin: 0;
+          font-weight: 600;
+        }
+        h1 {
+          font-size: 2.25rem;
+          margin-bottom: 0.5rem;
+        }
+        h2 {
+          font-size: 1.5rem;
+          margin: 1.5rem 0 0.5rem;
+        }
+        h3 {
+          font-size: 1.2rem;
+          margin-bottom: 0.3em;
+        }
+        p {
+          margin: 0.5em 0 1em;
+        }
+        small {
+          font-size: 0.875em;
+          color: oklch(0.35 0.01 280);
         }
 
-        /* Component styles */
-        .markdown{max-width:768px;margin-right:auto;margin-left:auto}
-        .markdown>*:first-child{margin-top:0!important}
-        .markdown>*:last-child{margin-bottom:0!important}
+        .container {
+          max-width: 960px;
+          margin: 0 auto;
+          padding: 2rem 1.5rem;
+        }
+        .card {
+          background: white;
+          border-radius: 12px;
+          padding: 1.75rem;
+          border: 1px solid oklch(0.95 0.005 298);
+          box-shadow: 
+            0 1px 2px rgba(0,0,0,0.02),
+            0 4px 16px rgba(0,0,0,0.02);
+          margin-bottom: 1.5rem;
+          transition: all 0.2s ease;
+        }
+        .card:hover {
+          transform: translateY(-1px);
+          box-shadow: 
+            0 2px 4px rgba(0,0,0,0.02),
+            0 8px 24px rgba(0,0,0,0.03);
+          border-color: oklch(0.92 0.005 298);
+        }
+        .nav-box {
+          background: white;
+          border-radius: 10px;
+          padding: 1.5rem;
+          margin-bottom: 2rem;
+          border: 1px solid oklch(0.95 0.005 298);
+          box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+        .feed-header {
+          display: flex;
+          align-items: flex-start;
+          gap: 1.25rem;
+          margin-bottom: 1.25rem;
+        }
+        .feed-header img {
+          width: 3.5rem;
+          height: 3.5rem;
+          border-radius: 8px;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .divider {
+          border-bottom: 1px solid oklch(0.93 0.005 298);
+          margin: 2.5rem 0 1.5rem;
+        }
+        .visit-link {
+          display: inline-flex;
+          align-items: center;
+          margin-top: 0.75rem;
+          font-weight: 500;
+          padding: 0.5rem 0;
+          color: oklch(0.45 0.07 280);
+        }
+        .visit-link:hover {
+          text-decoration: none;
+          color: oklch(0.55 0.1 280);
+        }
+        
+        @media (max-width: 640px) {
+          .feed-header {
+            flex-direction: column;
+            gap: 1rem;
+          }
+          .card {
+            padding: 1.25rem;
+          }
+        }
         </style>
       </head>
-      <body class="bg-white">
-        <nav class="px-4 py-2 mt-3 mt-md-5 markdown">
-          <p>
-            <strong>This is a web feed,</strong> also known as an RSS feed. <strong>Subscribe</strong> by copying the URL from the address bar into your newsreader.
-          </p>
-        </nav>
-        <div class="px-4 pb-3 markdown">
-          <header class="py-5">
-            <h1 class="border-0">
-              <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="vertical-align: text-bottom; width: 1.2em; height: 1.2em;" class="pr-1" id="RSSicon" viewBox="0 0 256 256">
-                <defs>
-                  <linearGradient x1="0.085" y1="0.085" x2="0.915" y2="0.915" id="RSSg">
-                    <stop  offset="0.0" stop-color="#E3702D"/><stop  offset="0.1071" stop-color="#EA7D31"/>
-                    <stop  offset="0.3503" stop-color="#F69537"/><stop  offset="0.5" stop-color="#FB9E3A"/>
-                    <stop  offset="0.7016" stop-color="#EA7C31"/><stop  offset="0.8866" stop-color="#DE642B"/>
-                    <stop  offset="1.0" stop-color="#D95B29"/>
-                  </linearGradient>
-                </defs>
-                <rect width="256" height="256" rx="55" ry="55" x="0"  y="0"  fill="#CC5D15"/>
-                <rect width="246" height="246" rx="50" ry="50" x="5"  y="5"  fill="#F49C52"/>
-                <rect width="236" height="236" rx="47" ry="47" x="10" y="10" fill="url(#RSSg)"/>
-                <circle cx="68" cy="189" r="24" fill="#FFF"/>
-                <path d="M160 213h-34a82 82 0 0 0 -82 -82v-34a116 116 0 0 1 116 116z" fill="#FFF"/>
-                <path d="M184 213A140 140 0 0 0 44 73 V 38a175 175 0 0 1 175 175z" fill="#FFF"/>
-              </svg>
-              Web Feed Preview
-            </h1>
-            <h2><xsl:value-of select="/rss/channel/title"/></h2>
-            <p><xsl:value-of select="/rss/channel/description"/></p>
-            <a target="_blank">
+      <body>
+        <div class="container">
+          <div class="nav-box">
+            <p>
+              <strong>This is a web feed (RSS),</strong> subscribe by copying the URL from the address bar into your reader.<br/>
+              <strong>这是一个 Web Feed（RSS 订阅），</strong>你可以复制地址栏的链接添加到订阅工具中。
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="feed-header">
+              <img src="/icon/favicon.png" alt="Site Icon"/>
+              <div>
+                <h1><xsl:value-of select="/rss/channel/title"/></h1>
+                <p><xsl:value-of select="/rss/channel/description"/></p>
+              </div>
+            </div>
+            <a class="visit-link" target="_blank">
               <xsl:attribute name="href">
                 <xsl:value-of select="/rss/channel/link"/>
               </xsl:attribute>
-              Visit Website &#x2192;
+              Visit Website → 前往网站
             </a>
-          </header>
-          <h2>Recent Items</h2>
+          </div>
+
+          <div class="divider">
+            <h2>Recent Items / 最新条目</h2>
+          </div>
+
           <xsl:for-each select="/rss/channel/item">
-            <div class="pb-5">
-              <h3 class="mb-1">
+            <div class="card">
+              <h3>
                 <a target="_blank">
                   <xsl:attribute name="href">
                     <xsl:value-of select="link"/>
@@ -93,9 +164,12 @@
                   <xsl:value-of select="title"/>
                 </a>
               </h3>
-              <small class="text-gray">
-                Published: <xsl:value-of select="substring(pubDate, 1, 16)" />
+              <small>
+                Published / 发布时间: <xsl:value-of select="substring(pubDate, 1, 16)" />
               </small>
+              <p>
+                <xsl:value-of select="description"/>
+              </p>
             </div>
           </xsl:for-each>
         </div>

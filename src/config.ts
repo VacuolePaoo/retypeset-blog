@@ -12,40 +12,33 @@ export const themeConfig: ThemeConfig = {
     // use i18n title/subtitle/description from src/i18n/ui.ts instead of static ones above
     i18nTitle: true, // true, false
     // author name
-    author: 'radishzz',
+    author: 'vacuole',
     // site url
-    url: 'https://retypeset.radishzz.cc',
+    url: 'https://blog.vacuole.top',
     // favicon url
     // recommended formats: svg, png or ico
-    favicon: '/icon/favicon.svg', // or https://example.com/favicon.svg
+    favicon: '/icon/favicon.png', // or https://example.com/favicon.svg
   },
   // SITE INFORMATION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> END
 
   // COLOR SETTINGS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> START
   color: {
-    // default theme mode
-    mode: 'light', // light, dark, auto
+    mode: 'light',
     light: {
-      // primary color
-      // used for title, hover, etc
-      // oklch color picker: https://oklch.com/
-      primary: 'oklch(25% 0.005 298)',
-      // secondary color
-      // used for post text
-      secondary: 'oklch(40% 0.005 298)',
-      // background color
-      background: 'oklch(96% 0.005 298)',
+      // 更柔和的主色调
+      primary: 'oklch(0.35 0.045 265)',
+      // 降低次要色的饱和度
+      secondary: 'oklch(0.45 0.040 265)',
+      // 轻微调整背景色，增加温暖感
+      background: 'oklch(0.98 0.003 75)',
     },
     dark: {
-      // primary color
-      // used for title, hover, etc
-      // oklch color picker: https://oklch.com/
-      primary: 'oklch(92% 0.005 298)',
-      // secondary color
-      // used for post text
-      secondary: 'oklch(77% 0.005 298)',
-      // background color
-      background: 'oklch(22% 0.005 298)',
+      // 调整暗色模式主色调
+      primary: 'oklch(0.85 0.02 265)',
+      // 优化次要色对比度
+      secondary: 'oklch(0.75 0.015 265)',
+      // 更柔和的深色背景
+      background: 'oklch(0.2 0.012 265)',
     },
   },
   // COLOR SETTINGS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> END
@@ -71,7 +64,7 @@ export const themeConfig: ThemeConfig = {
   // COMMENT SETTINGS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> START
   comment: {
     // enable comment system
-    enabled: true, // true, false
+    enabled: false, // true, false
     // waline comment system
     // https://waline.js.org/en/
     waline: {
@@ -95,15 +88,14 @@ export const themeConfig: ThemeConfig = {
   // SEO SETTINGS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> START
   seo: {
     // @twitter ID
-    twitterID: '@radishzz_',
     // site verification
     verification: {
       // google search console
       // https://search.google.com/search-console
-      google: 'AUCrz5F1e5qbnmKKDXl2Sf8u6y0kOpEO1wLs6HMMmlM',
+      // google: 'AUCrz5F1e5qbnmKKDXl2Sf8u6y0kOpEO1wLs6HMMmlM',
       // bing webmaster tools
       // https://www.bing.com/webmasters
-      bing: '64708CD514011A7965C84DDE1D169F87',
+      // bing: '64708CD514011A7965C84DDE1D169F87',
       // yandex webmaster
       // https://webmaster.yandex.com
       yandex: '',
@@ -138,15 +130,15 @@ export const themeConfig: ThemeConfig = {
     links: [
       {
         name: 'RSS',
-        url: '/rss.xml', // rss.xml, atom.xml
+        url: '/atom.xml', // rss.xml, atom.xml
       },
       {
         name: 'GitHub',
-        url: 'https://github.com/radishzzz/astro-theme-retypeset',
+        url: 'https://github.com/vacuolepaoo',
       },
       {
-        name: 'Twitter',
-        url: 'https://x.com/radishzz_',
+        name: 'Bilibili',
+        url: 'https://space.bilibili.com/518590350',
       },
       // {
       //   name: 'Email',
@@ -164,9 +156,9 @@ export const themeConfig: ThemeConfig = {
     // docs: https://docs.astro.build/en/guides/prefetch/#prefetch-strategies
     linkPrefetch: 'viewport', // hover, tap, viewport, load
     // comment server url
-    commentURL: 'https://retypeset-comment.radishzz.cc',
+    // commentURL: 'https://retypeset-comment.radishzz.cc',
     // image hosting url
-    imageHostURL: 'https://image.radishzz.cc',
+    // imageHostURL: 'https://image.radishzz.cc',
     // custom google analytics js
     // for users who route analytics javascript to a customized domain
     // See https://gist.github.com/xiaopc/0602f06ca465d76bd9efd3dda9393738
